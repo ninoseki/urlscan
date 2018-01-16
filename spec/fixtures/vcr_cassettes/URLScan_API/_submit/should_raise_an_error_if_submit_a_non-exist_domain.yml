@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://urlscan.io/api/v1/scan/
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://non-exist-domain.org","public":"on"}'
+    headers:
+      Api-Key:
+      - "<CENSORED/>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - urlscan.io
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 16 Jan 2018 12:23:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '216'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept
+      Etag:
+      - W/"d8-fB0Mrl8yx8f8aNfigVX+7B4amas"
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "message": "DNS Error - Could not resolve domain",
+          "description": "The domain non-exist-domain.org could not be resolved to a valid IPv4/IPv6 address. We won't try to load it in the browser.",
+          "status": 400
+        }
+    http_version: 
+  recorded_at: Tue, 16 Jan 2018 12:23:43 GMT
+recorded_with: VCR 4.0.0
