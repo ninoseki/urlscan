@@ -10,16 +10,16 @@ module UrlScan
     method_option :public, type: :boolean, default: true
     def submit(url)
       with_error_handling do
-         res = api.submit(url, options[:public])
-         puts JSON.pretty_generate(res)
+        res = api.submit(url, options[:public])
+        puts JSON.pretty_generate(res)
       end
     end
 
     desc "result [UUID]", "get the result of a scan using the [UUID]"
     def result(uuid)
       with_error_handling do
-         res = api.result(uuid)
-         puts JSON.pretty_generate(res)
+        res = api.result(uuid)
+        puts JSON.pretty_generate(res)
       end
     end
 
