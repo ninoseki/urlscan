@@ -3,7 +3,6 @@ require 'thor'
 
 module UrlScan
   class CLI < Thor
-
     class_option :API_KEY, type: :string
 
     desc "submit [URL]", "submit a scan to [URL]"
@@ -41,10 +40,10 @@ module UrlScan
 
       def with_error_handling
         yield
-      rescue ArgumentError => e
+      rescue ArgumentError => _
         puts "Warning: please specify your urlscan.io API key"
       rescue ResponseError => e
-        puts "Warning: #{e.to_s}"
+        puts "Warning: #{e}"
       end
     end
   end

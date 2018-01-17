@@ -11,7 +11,7 @@ describe UrlScan::API, :vcr do
     end
 
     it "should raise an error if submit a non-exist domain" do
-      expect { @api.submit("https://non-exist-domain.org") }.to raise_error(UrlScan::ProcessingError)
+      expect { @api.submit("https://non-exist-domain.org") }.to raise_error(UrlScan::ResponseError)
     end
   end
 
