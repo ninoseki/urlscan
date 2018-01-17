@@ -1,0 +1,12 @@
+version: "2"
+prepare:
+  fetch:
+    - url: "https://raw.githubusercontent.com/janlelis/relaxed.ruby.style/master/.rubocop.yml"
+      path: "alternate-rubocop-path.yml"
+plugins:
+  rubocop:
+    enabled: true
+    config:
+      file: "alternate-rubocop-path.yml"
+exclude_patterns:
+  - "spec/**/*"
