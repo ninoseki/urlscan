@@ -7,18 +7,21 @@
 
 Ruby API client for [urlscan.io](https://urlscan.io/)
 
-## Usage
+## Installation
+
+```bash
+$ gem install urlscan
+```
+
+## API usage
 
 Initialize the API:
 
 ```ruby
 require 'urlscan'
+# initialize the API by passing the API key.
 api = UrlScan::API.new(api_key)
-```
-
-Initialize the API by using `$URLSCAN_API_KEY` environment variable:
-
-```ruby
+# or initialize the API by using `$URLSCAN_API_KEY` environment variable
 api = UrlScan::API.new
 ```
 
@@ -43,4 +46,18 @@ Search:
 res = api.search("wikipedia.org")
 p res  # => See the following URL as an example of the reponse.
        #    https://gist.github.com/ninoseki/a974d7e95629813615b380c30e737825#file-search-json
+```
+
+## CLI usage
+
+```bash
+$ urlscan
+Commands:
+  urlscan help [COMMAND]  # Describe available commands or one specific command
+  urlscan result [UUID]   # get the result of a scan using the [UUID]
+  urlscan search [QUERY]  # search for scans by [QUERY]
+  urlscan submit [URL]    # submit a scan to [URL]
+
+Options:
+  [--API-KEY=API_KEY]
 ```
