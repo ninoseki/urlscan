@@ -41,7 +41,7 @@ module UrlScan
       def with_error_handling
         yield
       rescue ArgumentError => _
-        puts "Warning: please specify your urlscan.io API key"
+        puts "Warning: please specify your urlscan.io API key via ENV['URLSCAN_API_KEY] or --API-KEY"
       rescue ResponseError => e
         puts "Warning: #{e}"
       end
