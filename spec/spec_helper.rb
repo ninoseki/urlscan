@@ -3,6 +3,9 @@ require "rspec"
 require "urlscan"
 require "vcr"
 
+require 'coveralls'
+Coveralls.wear!
+
 RSpec.configure do |config|
   def capture(stream)
     begin
