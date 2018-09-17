@@ -1,10 +1,11 @@
 require "dotenv/load"
-require "rspec"
-require "urlscan"
-require "vcr"
 
 require 'coveralls'
 Coveralls.wear!
+
+require "rspec"
+require "urlscan"
+require "vcr"
 
 RSpec.configure do |config|
   def capture(stream)
