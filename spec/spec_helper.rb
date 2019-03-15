@@ -1,25 +1,34 @@
-require "dotenv/load"
+# frozen_string_literal: true
 
-require 'coveralls'
+require "bundler/setup"
+
+require "simplecov"
+require "coveralls"
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start do
+  add_filter "/spec"
+end
 Coveralls.wear!
 
-require "rspec"
 require "urlscan"
 require "vcr"
 
-RSpec.configure do |config|
-  def capture(stream)
-    begin
-      stream = stream.to_s
-      eval "$#{stream} = StringIO.new"
-      yield
-      result = eval("$#{stream}").string
-    ensure
-      eval("$#{stream} = #{stream.upcase}")
-    end
+require_relative "./support/helpers/helpers"
 
-    result
+RSpec.configure do |config|
+  # Enable flags like --only-failures and --next-failure
+  config.example_status_persistence_file_path = ".rspec_status"
+
+  # Disable RSpec exposing methods globally on `Module` and `main`
+  config.disable_monkey_patching!
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
   end
+
+  config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  config.include Spec::Support::Helpers
 end
 
 VCR.configure do |config|
