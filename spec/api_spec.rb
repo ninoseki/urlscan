@@ -5,10 +5,6 @@ RSpec.describe UrlScan::API, :vcr do
       expect(json).to be_a(Hash)
       expect(json["message"]).to eq("Submission successful")
     end
-
-    it "should raise an error if submit a non-exist domain" do
-      expect { subject.submit("https://non-exist-domain.org") }.to raise_error(UrlScan::ResponseError)
-    end
   end
 
   context "#result" do
