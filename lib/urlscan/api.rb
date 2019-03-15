@@ -13,6 +13,7 @@ module UrlScan
 
     def initialize(key = ENV["URLSCAN_API_KEY"])
       raise ArgumentError, "`key` argument required" if key.nil?
+
       @key = key
     end
 
@@ -39,8 +40,8 @@ module UrlScan
       if proxy = ENV["HTTPS_PROXY"]
         uri = URI(proxy)
         {
-          proxy_address:  uri.hostname,
-          proxy_port:     uri.port,
+          proxy_address: uri.hostname,
+          proxy_port: uri.port,
           proxy_from_env: false,
           use_ssl: true
         }
