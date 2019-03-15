@@ -1,4 +1,4 @@
-describe UrlScan::API, :vcr do
+RSpec.describe UrlScan::API, :vcr do
   context "#submit" do
     it "should return a response" do
       json = subject.submit("https://www.wikipedia.org/", true)

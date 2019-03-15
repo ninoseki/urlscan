@@ -1,4 +1,4 @@
-describe UrlScan do
+RSpec.describe UrlScan do
   it "has a version number" do
     expect(subject::VERSION).not_to be nil
   end
