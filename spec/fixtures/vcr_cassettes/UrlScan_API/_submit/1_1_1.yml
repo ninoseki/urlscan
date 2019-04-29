@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://urlscan.io/api/v1/scan/
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://www.wikipedia.org/","public":"on"}'
+    headers:
+      Api-Key:
+      - "<CENSORED/>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - urlscan.io
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 29 Apr 2019 14:15:56 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept
+      Etag:
+      - W/"1dd-5XYbM65kZsYz0aJaW5NH3VLX64s"
+      Content-Security-Policy:
+      - 'default-src ''self'' data: www.google-analytics.com ; script-src ''self''
+        data: www.google-analytics.com maps.googleapis.com developers.google.com www.google.com
+        www.gstatic.com; style-src ''self'' ''unsafe-inline'' fonts.googleapis.com
+        www.google.com; img-src *; font-src ''self'' fonts.gstatic.com; child-src
+        ''self''; frame-src https://www.google.com/recaptcha/; form-action ''self'';
+        upgrade-insecure-requests; report-uri https://492e9283a087a343fe461d889f3a068e.report-uri.io/r/default/csp/enforce'
+      Referrer-Policy:
+      - unsafe-url
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "message": "Submission successful",
+          "uuid": "a2b35973-84b5-4a4e-9fd4-3bfd6c8b148c",
+          "result": "https://urlscan.io/result/a2b35973-84b5-4a4e-9fd4-3bfd6c8b148c/",
+          "api": "https://urlscan.io/api/v1/result/a2b35973-84b5-4a4e-9fd4-3bfd6c8b148c/",
+          "visibility": "public",
+          "options": {
+            "useragent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36"
+          },
+          "url": "https://www.wikipedia.org/"
+        }
+    http_version: 
+  recorded_at: Mon, 29 Apr 2019 14:15:34 GMT
+recorded_with: VCR 4.0.0
