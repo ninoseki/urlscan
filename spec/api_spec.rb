@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe UrlScan::API, :vcr do
   let(:api) { UrlScan::API.new }
   let(:uuid) { "7f0aa2ab-748a-4cae-b648-71e324e836cd" }
