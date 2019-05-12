@@ -6,7 +6,7 @@
 
 ## Description
 
-Ruby API client for [urlscan.io](https://urlscan.io/)
+Ruby API client for [urlscan.io](https://urlscan.io/).
 
 ## Installation
 
@@ -16,45 +16,41 @@ gem install urlscan
 
 ## API usage
 
-Initialize the API:
-
 ```ruby
 require 'urlscan'
-# initialize the API by passing the API key.
-api = UrlScan::API.new(api_key)
-# or initialize the API by using `$URLSCAN_API_KEY` environment variable
+
+# when given nothing, it tries to load your API key from ENV["SHODAN_API_KEY"]
 api = UrlScan::API.new
-```
+# or you can set it manually
+api = UrlScan::API.new(api_key)
 
-Submit:
-
-```ruby
+# Submit a URL to scan
 res = api.submit("https://wikipedia.org")
 puts res["result"] # => "https://urlscan.io/result/ac04bc14-4efe-439d-b356-8384843daf75/"
-```
 
-Result:
-
-```ruby
+# Get a scan result
 res = api.result("ac04bc14-4efe-439d-b356-8384843daf75")
 p res # => See the following URL as an example of the response.
       #    https://gist.github.com/ninoseki/a974d7e95629813615b380c30e737825#file-result-json
-```
 
-DOM:
-
-```ruby
+# Get a DOM
 res = api.dom("ac04bc14-4efe-439d-b356-8384843daf75")
 p res
-```
 
-Search:
-
-```ruby
+# Search
 res = api.search("wikipedia.org")
 p res  # => See the following URL as an example of the reponse.
        #    https://gist.github.com/ninoseki/a974d7e95629813615b380c30e737825#file-search-json
 ```
+
+### Supported API endpoints
+
+| HTTP Method | URI            | API method                                                        |
+|-------------|----------------|-------------------------------------------------------------------|
+| POST        | /scan          | `UrlScan::API#submit(url, is_public = true)`                      |
+| GET         | /result/$uuid/ | `UrlScan::API#result(uuid)`                                       |
+| GET         | /dom/$uuid/    | `UrlScan::API#dom(uuid)`                                          |
+| GET         | /search        | `UrlScan::API#search(q, size = 100, offset = 0, sort = "_score")` |
 
 ## CLI usage
 

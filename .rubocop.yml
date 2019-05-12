@@ -1,6 +1,13 @@
 # Relaxed.Ruby.Style
 ## Version 2.2
 
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.6
+
 Style/Alias:
   Enabled: false
   StyleGuide: https://relaxed.ruby.style/#stylealias

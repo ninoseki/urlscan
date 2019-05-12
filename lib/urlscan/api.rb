@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'net/https'
 require 'json'
 
@@ -6,8 +8,8 @@ require 'urlscan/exceptions'
 module UrlScan
   class API
     VERSION = 1
-    HOST = "urlscan.io".freeze
-    URL = "https://#{HOST}/api/v#{VERSION}".freeze
+    HOST = "urlscan.io"
+    URL = "https://#{HOST}/api/v#{VERSION}"
 
     attr_reader :key
 

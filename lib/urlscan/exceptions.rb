@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UrlScan
   class ResponseError < StandardError; end
 
