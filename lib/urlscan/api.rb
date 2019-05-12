@@ -17,15 +17,23 @@ module UrlScan
       @key = key
     end
 
+    # @return [Hash]
     def submit(url, is_public = true)
       params = { url: url, public: is_public ? "on" : "off" }
       post("/scan/", params) { |json| json }
     end
 
+    # @return [Hash]
     def result(uuid)
       get("/result/#{uuid}") { |json| json }
     end
 
+    # @return [String]
+    def dom(uuid)
+      get("/dom/#{uuid}/") { |dom| dom }
+    end
+
+    # @return [Hash]
     def search(q, size = 100, offset = 0, sort = "_score")
       params = { q: q, size: size, offset: offset, sort: sort }
       query = URI.encode_www_form(params)
@@ -55,7 +63,12 @@ module UrlScan
         response = http.request(req)
 
         case response.code
-        when '200' then yield JSON.parse(response.body)
+        when '200'
+          if response["Content-Type"].to_s.include? "application/json"
+            yield JSON.parse(response.body)
+          else
+            yield response.body
+          end
         when '400' then raise ProcessingError, response.body
         when '401' then raise AuthenticationError, response.body
         when '404' then raise NotFound, response.body

@@ -33,6 +33,14 @@ module UrlScan
       end
     end
 
+    desc "dom [UUID]", "get the DOM of a scan using the [UUID]"
+    def dom(uuid)
+      with_error_handling do
+        res = api.dom(uuid)
+        puts res
+      end
+    end
+
     no_commands do
       def api
         options[:API_KEY] ? API.new(options[:API_KEY]) : API.new
@@ -40,10 +48,10 @@ module UrlScan
 
       def with_error_handling
         yield
-      rescue ArgumentError => _
+      rescue ArgumentError => _e
         puts "Warning: please specify your urlscan.io API key via ENV['URLSCAN_API_KEY] or --API-KEY"
-      rescue ResponseError => e
-        puts "Warning: #{e}"
+      rescue ResponseError => _e
+        puts "Warning: #{_e}"
       end
     end
   end

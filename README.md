@@ -11,7 +11,7 @@ Ruby API client for [urlscan.io](https://urlscan.io/)
 ## Installation
 
 ```bash
-$ gem install urlscan
+gem install urlscan
 ```
 
 ## API usage
@@ -41,6 +41,13 @@ p res # => See the following URL as an example of the response.
       #    https://gist.github.com/ninoseki/a974d7e95629813615b380c30e737825#file-result-json
 ```
 
+DOM:
+
+```ruby
+res = api.dom("ac04bc14-4efe-439d-b356-8384843daf75")
+p res
+```
+
 Search:
 
 ```ruby
@@ -54,6 +61,7 @@ p res  # => See the following URL as an example of the reponse.
 ```bash
 $ urlscan
 Commands:
+  urlscan dom [UUID]      # get the DOM of a scan using the [UUID]
   urlscan help [COMMAND]  # Describe available commands or one specific command
   urlscan result [UUID]   # get the result of a scan using the [UUID]
   urlscan search [QUERY]  # search for scans by [QUERY]
@@ -61,4 +69,5 @@ Commands:
 
 Options:
   [--API-KEY=API_KEY]
+
 ```
