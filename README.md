@@ -19,7 +19,7 @@ gem install urlscan
 ```ruby
 require 'urlscan'
 
-# when given nothing, it tries to load your API key from ENV["SHODAN_API_KEY"]
+# when given nothing, it tries to load your API key from ENV["URLSCAN_API_KEY"]
 api = UrlScan::API.new
 # or you can set it manually
 api = UrlScan::API.new(api_key)
@@ -45,12 +45,12 @@ p res  # => See the following URL as an example of the reponse.
 
 ### Supported API endpoints
 
-| HTTP Method | URI            | API method                                                        |
-|-------------|----------------|-------------------------------------------------------------------|
-| POST        | /scan          | `UrlScan::API#submit(url, is_public = true)`                      |
-| GET         | /result/$uuid/ | `UrlScan::API#result(uuid)`                                       |
-| GET         | /dom/$uuid/    | `UrlScan::API#dom(uuid)`                                          |
-| GET         | /search        | `UrlScan::API#search(q, size = 100, offset = 0, sort = "_score")` |
+| HTTP Method | URI             | API method                                                        |
+| ----------- | --------------- | ----------------------------------------------------------------- |
+| POST        | /scan           | `UrlScan::API#submit(url, is_public = true)`                      |
+| GET         | /result/\$uuid/ | `UrlScan::API#result(uuid)`                                       |
+| GET         | /dom/\$uuid/    | `UrlScan::API#dom(uuid)`                                          |
+| GET         | /search         | `UrlScan::API#search(q, size = 100, offset = 0, sort = "_score")` |
 
 ## CLI usage
 
