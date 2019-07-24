@@ -14,13 +14,13 @@ module UrlScan
     attr_reader :key
 
     def initialize(key = ENV["URLSCAN_API_KEY"])
-      raise ArgumentError, "`key` argument required" if key.nil?
-
       @key = key
     end
 
     # @return [Hash]
     def submit(url, is_public = true)
+      raise ArgumentError, "API key is required for this method." if key.nil?
+
       params = { url: url, public: is_public ? "on" : "off" }
       post("/scan/", params) { |json| json }
     end
@@ -87,7 +87,7 @@ module UrlScan
     end
 
     def get(path, &block)
-      get = Net::HTTP::Get.new(url_for(path), auth_header)
+      get = Net::HTTP::Get.new(url_for(path))
       request(get, &block)
     end
 
