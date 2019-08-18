@@ -46,12 +46,13 @@ p res  # => See the following URL as an example of the reponse.
 
 ### Supported API endpoints
 
-| HTTP Method | URI             | API method                                                     |
-|-------------|-----------------|----------------------------------------------------------------|
-| POST        | /scan           | `UrlScan::API#submit(url, is_public = true)`                   |
-| GET         | /result/\$uuid/ | `UrlScan::API#result(uuid)`                                    |
-| GET         | /dom/\$uuid/    | `UrlScan::API#dom(uuid)`                                       |
-| GET         | /search         | `UrlScan::API#search(q, size: 100, offset: 0, sort: "_score")` |
+| HTTP Method | URI                     | API method                                                     |
+|-------------|-------------------------|----------------------------------------------------------------|
+| POST        | /scan                   | `UrlScan::API#submit(url, is_public = true)`                   |
+| GET         | /result/`uuid`/         | `UrlScan::API#result(uuid)`                                    |
+| GET         | /dom/`uuid`/            | `UrlScan::API#dom(uuid)`                                       |
+| GET         | /screenshots/`uuid`.png | `UrlScan::API#screenshot(uuid)`                                |
+| GET         | /search                 | `UrlScan::API#search(q, size: 100, offset: 0, sort: "_score")` |
 
 ## CLI usage
 
