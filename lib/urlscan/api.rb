@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require 'net/https'
-require 'json'
-
-require 'urlscan/exceptions'
+require "net/https"
+require "json"
 
 module UrlScan
   class API
@@ -40,7 +38,7 @@ module UrlScan
     end
 
     # @return [Hash]
-    def search(q, size = 100, offset = 0, sort = "_score")
+    def search(q, size: 100, offset: 0, sort: "_score")
       params = { q: q, size: size, offset: offset, sort: sort }
       query = URI.encode_www_form(params)
       get("/search/?#{query}") { |json| json }
@@ -69,17 +67,17 @@ module UrlScan
         response = http.request(req)
 
         case response.code
-        when '200'
+        when "200"
           if response["Content-Type"].to_s.include? "application/json"
             yield JSON.parse(response.body)
           else
             yield response.body
           end
-        when '400' then raise ProcessingError, response.body
-        when '401' then raise AuthenticationError, response.body
-        when '404' then raise NotFound, response.body
-        when '429' then raise RateLimited, response.body
-        when '500' then raise InternalServerError, response.body
+        when "400" then raise ProcessingError, response.body
+        when "401" then raise AuthenticationError, response.body
+        when "404" then raise NotFound, response.body
+        when "429" then raise RateLimited, response.body
+        when "500" then raise InternalServerError, response.body
         else
           raise ResponseError, response.body
         end
@@ -97,7 +95,7 @@ module UrlScan
 
     def post(path, json, &block)
       post = Net::HTTP::Post.new(url_for(path), auth_header)
-      post.content_type = 'application/json'
+      post.content_type = "application/json"
       post.body = json.to_json
 
       request(post, &block)

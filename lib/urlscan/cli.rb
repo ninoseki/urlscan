@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'json'
-require 'thor'
+require "json"
+require "thor"
 
 module UrlScan
   class CLI < Thor
@@ -30,7 +30,7 @@ module UrlScan
     method_option :sort, type: :string, default: "_score"
     def search(query)
       with_error_handling do
-        res = api.search(query, options["size"], options["offset"], options["sort"])
+        res = api.search(query, size: options["size"], offset: options["offset"], sort: options["sort"])
         puts JSON.pretty_generate(res)
       end
     end
