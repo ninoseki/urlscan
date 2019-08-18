@@ -1,5 +1,6 @@
-# UrlScan
+# urlscan
 
+[![Gem Version](https://badge.fury.io/rb/urlscan.svg)](https://badge.fury.io/rb/urlscan)
 [![Build Status](https://travis-ci.org/ninoseki/urlscan.svg?branch=master)](https://travis-ci.org/ninoseki/urlscan)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c6625486f2d57039adef/maintainability)](https://codeclimate.com/github/ninoseki/urlscan/maintainability)
 [![Coverage Status](https://coveralls.io/repos/github/ninoseki/urlscan/badge.svg?branch=master)](https://coveralls.io/github/ninoseki/urlscan?branch=master)
@@ -45,23 +46,24 @@ p res  # => See the following URL as an example of the reponse.
 
 ### Supported API endpoints
 
-| HTTP Method | URI             | API method                                                        |
-| ----------- | --------------- | ----------------------------------------------------------------- |
-| POST        | /scan           | `UrlScan::API#submit(url, is_public = true)`                      |
-| GET         | /result/\$uuid/ | `UrlScan::API#result(uuid)`                                       |
-| GET         | /dom/\$uuid/    | `UrlScan::API#dom(uuid)`                                          |
-| GET         | /search         | `UrlScan::API#search(q, size = 100, offset = 0, sort = "_score")` |
+| HTTP Method | URI             | API method                                                     |
+|-------------|-----------------|----------------------------------------------------------------|
+| POST        | /scan           | `UrlScan::API#submit(url, is_public = true)`                   |
+| GET         | /result/\$uuid/ | `UrlScan::API#result(uuid)`                                    |
+| GET         | /dom/\$uuid/    | `UrlScan::API#dom(uuid)`                                       |
+| GET         | /search         | `UrlScan::API#search(q, size: 100, offset: 0, sort: "_score")` |
 
 ## CLI usage
 
 ```bash
 $ urlscan
 Commands:
-  urlscan dom [UUID]      # get the DOM of a scan using the [UUID]
-  urlscan help [COMMAND]  # Describe available commands or one specific command
-  urlscan result [UUID]   # get the result of a scan using the [UUID]
-  urlscan search [QUERY]  # search for scans by [QUERY]
-  urlscan submit [URL]    # submit a scan to [URL]
+  urlscan dom [UUID]         # get the DOM of a scan using the scan id [UUID]
+  urlscan help [COMMAND]     # Describe available commands or one specific command
+  urlscan result [UUID]      # get the result of a scan using the scan id [UUID]
+  urlscan screenshot [UUID]  # get the screenshot(image/png) of a scan using the scan id [UUID]
+  urlscan search [QUERY]     # search for scans by [QUERY]
+  urlscan submit [URL]       # submit a scan to [URL]
 
 Options:
   [--API-KEY=API_KEY]
