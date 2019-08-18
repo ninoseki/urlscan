@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'json'
-require 'thor'
+require "json"
+require "thor"
 
 module UrlScan
   class CLI < Thor
