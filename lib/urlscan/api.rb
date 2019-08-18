@@ -38,7 +38,7 @@ module UrlScan
     end
 
     # @return [Hash]
-    def search(q, size = 100, offset = 0, sort = "_score")
+    def search(q, size: 100, offset: 0, sort: "_score")
       params = { q: q, size: size, offset: offset, sort: sort }
       query = URI.encode_www_form(params)
       get("/search/?#{query}") { |json| json }
