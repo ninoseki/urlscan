@@ -35,6 +35,10 @@ module UrlScan
       get("/dom/#{uuid}/") { |dom| dom }
     end
 
+    def screenshot(uuid)
+      get("/screenshots/#{uuid}.png") { |png| png }
+    end
+
     # @return [Hash]
     def search(q, size = 100, offset = 0, sort = "_score")
       params = { q: q, size: size, offset: offset, sort: sort }
