@@ -42,4 +42,11 @@ RSpec.describe UrlScan::CLI do
       expect(output).to be_a(String)
     end
   end
+
+  describe "#pro.search", vcr: { cassette_name: "UrlScan_API/_pro_search/1_6_1" } do
+    it do
+      output = capture(:stdout) { described_class.start(["pro search"]) }
+      expect(output).to be_a(String)
+    end
+  end
 end
