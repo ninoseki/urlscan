@@ -18,7 +18,7 @@ gem install urlscan
 ## API usage
 
 ```ruby
-require 'urlscan'
+require "urlscan"
 
 # when given nothing, it tries to load your API key from ENV["URLSCAN_API_KEY"]
 api = UrlScan::API.new
@@ -27,32 +27,34 @@ api = UrlScan::API.new(api_key)
 
 # Submit a URL to scan
 res = api.submit("https://wikipedia.org")
-puts res["result"] # => "https://urlscan.io/result/ac04bc14-4efe-439d-b356-8384843daf75/"
 
 # Get a scan result
 res = api.result("ac04bc14-4efe-439d-b356-8384843daf75")
-p res # => See the following URL as an example of the response.
-      #    https://gist.github.com/ninoseki/a974d7e95629813615b380c30e737825#file-result-json
 
 # Get a DOM
 res = api.dom("ac04bc14-4efe-439d-b356-8384843daf75")
-p res
 
 # Search
 res = api.search("wikipedia.org")
-p res  # => See the following URL as an example of the reponse.
-       #    https://gist.github.com/ninoseki/a974d7e95629813615b380c30e737825#file-search-json
 ```
 
-### Supported API endpoints
+## Supported API endpoints
 
-| HTTP Method | URI                     | API method                                                     |
-|-------------|-------------------------|----------------------------------------------------------------|
-| POST        | /scan                   | `UrlScan::API#submit(url, is_public = true)`                   |
-| GET         | /result/`uuid`/         | `UrlScan::API#result(uuid)`                                    |
-| GET         | /dom/`uuid`/            | `UrlScan::API#dom(uuid)`                                       |
-| GET         | /screenshots/`uuid`.png | `UrlScan::API#screenshot(uuid)`                                |
-| GET         | /search                 | `UrlScan::API#search(q, size: 100, offset: 0, sort: "_score")` |
+| HTTP Method | URI                     | API method                                                                    |
+|-------------|-------------------------|-------------------------------------------------------------------------------|
+| POST        | /scan                   | `UrlScan::Clients::Community#submit(url, is_public = true)`                   |
+| GET         | /result/`uuid`/         | `UrlScan::Clients::Community#result(uuid)`                                    |
+| GET         | /dom/`uuid`/            | `UrlScan::Clients::Community#dom(uuid)`                                       |
+| GET         | /screenshots/`uuid`.png | `UrlScan::Clients::Community#screenshot(uuid)`                                |
+| GET         | /search                 | `UrlScan::Clients::Community#search(q, size: 100, offset: 0, sort: "_score")` |
+
+### Pro
+
+| HTTP Method | URI     | API method                                                        |
+|-------------|---------|-------------------------------------------------------------------|
+| GET         | /search | `UrlScan::Clients::Pro#search(query: nil, filter: nil, size: 50)` |
+| GET         | /brands | `UrlScan::Clients::Pro#brands`                                    |
+| GET         | /kits   | `UrlScan::Clients::Pro#kits`                                      |
 
 ## CLI usage
 
@@ -69,4 +71,16 @@ Commands:
 Options:
   [--API-KEY=API_KEY]
 
+```
+
+### Pro
+
+```bash
+$ urlscan pro
+Commands:
+  urlscan pro help [COMMAND]  # Describe subcommands or one specific subcommand
+  urlscan pro search          # search for scans
+
+Options:
+  [--API-KEY=API_KEY]
 ```
