@@ -77,7 +77,6 @@ Options:
 
 ```bash
 $ urlscan pro
- bundle exec exe/urlscan pro
 Commands:
   urlscan pro help [COMMAND]  # Describe subcommands or one specific subcommand
   urlscan pro search          # search for scans
