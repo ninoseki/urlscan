@@ -6,14 +6,10 @@ module UrlScan
       VERSION = 1
       HOST = "pro.urlscan.com"
 
-      def initialize(key = ENV["URLSCAN_API_KEY"])
-        super key
-
-        raise ArgumentError, "API key is required for this class." if key.nil?
-      end
-
       # @return [Hash]
       def search(query: nil, filter: nil, size: 50)
+        raise ArgumentError, "API key is required for this method." if key.nil?
+
         filter = build_filter(filter)
         params = { q: query, size: size }.compact
         uri_query = URI.encode_www_form(params)
@@ -24,11 +20,15 @@ module UrlScan
 
       # @return [Hash]
       def brands
+        raise ArgumentError, "API key is required for this method." if key.nil?
+
         get("/brands") { |json| json }
       end
 
       # @return [Hash]
       def kits
+        raise ArgumentError, "API key is required for this method." if key.nil?
+
         get("/kits") { |json| json }
       end
 
