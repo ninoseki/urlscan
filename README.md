@@ -50,11 +50,12 @@ res = api.search("wikipedia.org")
 
 ### Pro
 
-| HTTP Method | URI     | API method                                                        |
-|-------------|---------|-------------------------------------------------------------------|
-| GET         | /search | `UrlScan::Clients::Pro#search(query: nil, filter: nil, size: 50)` |
-| GET         | /brands | `UrlScan::Clients::Pro#brands`                                    |
-| GET         | /kits   | `UrlScan::Clients::Pro#kits`                                      |
+| HTTP Method | URI        | API method                                                        |
+|-------------|------------|-------------------------------------------------------------------|
+| GET         | /search    | `UrlScan::Clients::Pro#search(query: nil, filter: nil, size: 50)` |
+| GET         | /brands    | `UrlScan::Clients::Pro#brands`                                    |
+| GET         | /kits      | `UrlScan::Clients::Pro#kits`                                      |
+| GET         | /phishfeed | `UrlScan::Clients::Pro#phishfeed`                                 |
 
 ## CLI usage
 
