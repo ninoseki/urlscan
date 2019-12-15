@@ -32,6 +32,15 @@ module UrlScan
         get("/kits") { |json| json }
       end
 
+      # @return [Hash]
+      def phishfeed(q: "result.task.time:>now-24h", format: "json")
+        raise ArgumentError, "API key is required for this method." if key.nil?
+
+        params = { q: q, format: format }
+        query = URI.encode_www_form(params)
+        get("/phishfeed?#{query}") { |json| json }
+      end
+
       private
 
       def build_filter(filter)

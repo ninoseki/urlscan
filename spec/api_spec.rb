@@ -66,4 +66,11 @@ RSpec.describe UrlScan::API, :vcr do
       expect(json).to be_a(Hash)
     end
   end
+
+  describe "#pro.phishfeed" do
+    it do
+      json = api.pro.phishfeed
+      expect(json).to be_a(Hash)
+    end
+  end
 end
