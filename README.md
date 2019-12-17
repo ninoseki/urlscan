@@ -7,7 +7,7 @@
 
 ## Description
 
-Ruby API client for [urlscan.io](https://urlscan.io/).
+[urlscan.io](https://urlscan.io/) API wrapper for Ruby.
 
 ## Installation
 
