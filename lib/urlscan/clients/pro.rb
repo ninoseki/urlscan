@@ -8,37 +8,30 @@ module UrlScan
 
       # @return [Hash]
       def search(query: nil, filter: nil, size: 50)
-        raise ArgumentError, "API key is required for this method." if key.nil?
-
         filter = build_filter(filter)
-        params = { q: query, size: size }.compact
-        uri_query = URI.encode_www_form(params)
-        uri_query << "&filter=#{filter}" if filter
-
-        get("/search?#{uri_query}") { |json| json }
+        params = { q: query, size: size, filter: filter }.compact
+        get("/search", params) { |json| json }
       end
 
       # @return [Hash]
       def brands
-        raise ArgumentError, "API key is required for this method." if key.nil?
-
         get("/brands") { |json| json }
       end
 
       # @return [Hash]
       def kits
-        raise ArgumentError, "API key is required for this method." if key.nil?
-
         get("/kits") { |json| json }
       end
 
       # @return [Hash]
       def phishfeed(q: "result.task.time:>now-24h", format: "json")
-        raise ArgumentError, "API key is required for this method." if key.nil?
-
         params = { q: q, format: format }
-        query = URI.encode_www_form(params)
-        get("/phishfeed?#{query}") { |json| json }
+        get("/phishfeed", params) { |json| json }
+      end
+
+      # @return [Hash]
+      def similar(uuid)
+        get("/result/#{uuid}/similar") { |json| json }
       end
 
       private
@@ -50,12 +43,7 @@ module UrlScan
       end
 
       def url
-        @url ||= "https://#{self.class::HOST}/api/v#{self.class::VERSION}/pro"
-      end
-
-      def get(path, &block)
-        get = Net::HTTP::Get.new(url_for(path), auth_header)
-        request(get, &block)
+        @url ||= "https://#{HOST}/api/v#{VERSION}/pro"
       end
     end
   end
