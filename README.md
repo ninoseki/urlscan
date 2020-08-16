@@ -40,22 +40,23 @@ res = api.search("wikipedia.org")
 
 ## Supported API endpoints
 
-| HTTP Method | URI                     | API method                                                                    |
-|-------------|-------------------------|-------------------------------------------------------------------------------|
-| POST        | /scan                   | `UrlScan::Clients::Community#submit(url, is_public = true)`                   |
-| GET         | /result/`uuid`/         | `UrlScan::Clients::Community#result(uuid)`                                    |
-| GET         | /dom/`uuid`/            | `UrlScan::Clients::Community#dom(uuid)`                                       |
-| GET         | /screenshots/`uuid`.png | `UrlScan::Clients::Community#screenshot(uuid)`                                |
-| GET         | /search                 | `UrlScan::Clients::Community#search(q, size: 100, offset: 0, sort: "_score")` |
+| HTTP Method | URI                     | API method                                                            |
+|-------------|-------------------------|-----------------------------------------------------------------------|
+| POST        | /scan                   | `UrlScan::Clients::Community#submit(url, is_public = true)`           |
+| GET         | /result/`uuid`/         | `UrlScan::Clients::Community#result(uuid)`                            |
+| GET         | /dom/`uuid`/            | `UrlScan::Clients::Community#dom(uuid)`                               |
+| GET         | /screenshots/`uuid`.png | `UrlScan::Clients::Community#screenshot(uuid)`                        |
+| GET         | /search                 | `UrlScan::Clients::Community#search(q, size: 100, search_after: nil)` |
 
 ### Pro
 
-| HTTP Method | URI        | API method                                                        |
-|-------------|------------|-------------------------------------------------------------------|
-| GET         | /search    | `UrlScan::Clients::Pro#search(query: nil, filter: nil, size: 50)` |
-| GET         | /brands    | `UrlScan::Clients::Pro#brands`                                    |
-| GET         | /kits      | `UrlScan::Clients::Pro#kits`                                      |
-| GET         | /phishfeed | `UrlScan::Clients::Pro#phishfeed`                                 |
+| HTTP Method | URI                     | API method                                                        |
+|-------------|-------------------------|-------------------------------------------------------------------|
+| GET         | /search                 | `UrlScan::Clients::Pro#search(query: nil, filter: nil, size: 50)` |
+| GET         | /brands                 | `UrlScan::Clients::Pro#brands`                                    |
+| GET         | /kits                   | `UrlScan::Clients::Pro#kits`                                      |
+| GET         | /phishfeed              | `UrlScan::Clients::Pro#phishfeed`                                 |
+| GET         | /result/`uuid`/similar/ | `UrlScan::Clients::Pro#similar(uuid)`                             |
 
 ## CLI usage
 
