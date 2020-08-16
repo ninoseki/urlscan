@@ -22,11 +22,10 @@ module UrlScan
 
       desc "search [QUERY]", "search for scans by [QUERY]"
       method_option :size, type: :numeric, default: 100
-      method_option :offset, type: :numeric, default: 0
-      method_option :sort, type: :string, default: "_score"
+      method_option :search_after, type: :string
       def search(query)
         with_error_handling do
-          res = api.search(query, size: options["size"], offset: options["offset"], sort: options["sort"])
+          res = api.search(query, size: options["size"], search_after: options["search_after"])
           puts JSON.pretty_generate(res)
         end
       end

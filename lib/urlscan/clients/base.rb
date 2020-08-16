@@ -18,7 +18,7 @@ module UrlScan
       private
 
       def url
-        @url ||= "https://#{self.class::HOST}/api/v#{self.class::VERSION}"
+        @url ||= "https://#{HOST}/api/v#{VERSION}"
       end
 
       def url_for(path)
@@ -61,17 +61,20 @@ module UrlScan
         end
       end
 
-      def auth_header
-        { "API-KEY": key }
+      def default_headers
+        @default_headers ||= { "API-KEY": key }.compact
       end
 
-      def get(path, &block)
-        get = Net::HTTP::Get.new(url_for(path))
+      def get(path, params = {}, &block)
+        uri = url_for(path)
+        uri.query = URI.encode_www_form(params)
+
+        get = Net::HTTP::Get.new(uri, default_headers)
         request(get, &block)
       end
 
       def post(path, json, &block)
-        post = Net::HTTP::Post.new(url_for(path), auth_header)
+        post = Net::HTTP::Post.new(url_for(path), default_headers)
         post.content_type = "application/json"
         post.body = json.to_json
 

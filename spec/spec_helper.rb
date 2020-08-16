@@ -31,6 +31,8 @@ RSpec.configure do |config|
   config.include Spec::Support::Helpers::IOHelpers
 end
 
+ENV["URLSCAN_API_KEY"] = "foo bar" unless ENV.key?("URLSCAN_API_KEY")
+
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.configure_rspec_metadata!

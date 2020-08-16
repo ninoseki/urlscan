@@ -5,8 +5,6 @@ module UrlScan
     class Community < Base
       # @return [Hash]
       def submit(url, is_public = true)
-        raise ArgumentError, "API key is required for this method." if key.nil?
-
         params = { url: url, public: is_public ? "on" : "off" }
         post("/scan/", params) { |json| json }
       end
@@ -26,10 +24,9 @@ module UrlScan
       end
 
       # @return [Hash]
-      def search(q, size: 100, offset: 0, sort: "_score")
-        params = { q: q, size: size, offset: offset, sort: sort }
-        query = URI.encode_www_form(params)
-        get("/search/?#{query}") { |json| json }
+      def search(q, size: 100, search_after: nil)
+        params = { q: q, size: size, search_after: search_after }.compact
+        get("/search/", params) { |json| json }
       end
     end
   end

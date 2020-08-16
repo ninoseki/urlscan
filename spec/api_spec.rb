@@ -73,4 +73,11 @@ RSpec.describe UrlScan::API, :vcr do
       expect(json).to be_a(Hash)
     end
   end
+
+  describe "#pro.similar" do
+    it do
+      json = api.pro.similar("34449810-6d17-40c1-bc77-56eb40b3781f")
+      expect(json).to be_a(Hash)
+    end
+  end
 end
