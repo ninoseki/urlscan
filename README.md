@@ -1,7 +1,7 @@
 # urlscan
 
 [![Gem Version](https://badge.fury.io/rb/urlscan.svg)](https://badge.fury.io/rb/urlscan)
-[![Build Status](https://travis-ci.com/ninoseki/urlscan.svg?branch=master)](https://travis-ci.com/ninoseki/urlscan)
+[![Ruby CI](https://github.com/ninoseki/urlscan/actions/workflows/test.yml/badge.svg)](https://github.com/ninoseki/urlscan/actions/workflows/test.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c6625486f2d57039adef/maintainability)](https://codeclimate.com/github/ninoseki/urlscan/maintainability)
 [![Coverage Status](https://coveralls.io/repos/github/ninoseki/urlscan/badge.svg?branch=master)](https://coveralls.io/github/ninoseki/urlscan?branch=master)
 
