@@ -4,14 +4,7 @@ module UrlScan
   module Clients
     class Pro < Base
       VERSION = 1
-      HOST = "pro.urlscan.com"
-
-      # @return [Hash]
-      def search(query: nil, filter: nil, size: 50)
-        filter = build_filter(filter)
-        params = { q: query, size: size, filter: filter }.compact
-        get("/search", params) { |json| json }
-      end
+      HOST = "urlscan.io"
 
       # @return [Hash]
       def brands
@@ -31,7 +24,7 @@ module UrlScan
 
       # @return [Hash]
       def similar(uuid)
-        get("/result/#{uuid}/similar") { |json| json }
+        get("/result/#{uuid}/similar/") { |json| json }
       end
 
       private
