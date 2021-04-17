@@ -50,13 +50,12 @@ res = api.search("wikipedia.org")
 
 ### Pro
 
-| HTTP Method | URI                     | API method                                                        |
-|-------------|-------------------------|-------------------------------------------------------------------|
-| GET         | /search                 | `UrlScan::Clients::Pro#search(query: nil, filter: nil, size: 50)` |
-| GET         | /brands                 | `UrlScan::Clients::Pro#brands`                                    |
-| GET         | /kits                   | `UrlScan::Clients::Pro#kits`                                      |
-| GET         | /phishfeed              | `UrlScan::Clients::Pro#phishfeed`                                 |
-| GET         | /result/`uuid`/similar/ | `UrlScan::Clients::Pro#similar(uuid)`                             |
+| HTTP Method | URI                     | API method                            |
+|-------------|-------------------------|---------------------------------------|
+| GET         | /brands                 | `UrlScan::Clients::Pro#brands`        |
+| GET         | /kits                   | `UrlScan::Clients::Pro#kits`          |
+| GET         | /phishfeed              | `UrlScan::Clients::Pro#phishfeed`     |
+| GET         | /result/`uuid`/similar/ | `UrlScan::Clients::Pro#similar(uuid)` |
 
 ## CLI usage
 
@@ -73,16 +72,4 @@ Commands:
 Options:
   [--API-KEY=API_KEY]
 
-```
-
-### Pro
-
-```bash
-$ urlscan pro
-Commands:
-  urlscan pro help [COMMAND]  # Describe subcommands or one specific subcommand
-  urlscan pro search          # search for scans
-
-Options:
-  [--API-KEY=API_KEY]
 ```

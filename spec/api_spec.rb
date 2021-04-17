@@ -39,20 +39,6 @@ RSpec.describe UrlScan::API, :vcr do
     end
   end
 
-  describe "#pro.search" do
-    it do
-      json = api.pro.search(query: "domain:wikipedia.org")
-      expect(json).to be_a(Hash)
-    end
-
-    context "when given a filter" do
-      it do
-        json = api.pro.search(filter: "phishing_microsoft")
-        expect(json).to be_a(Hash)
-      end
-    end
-  end
-
   describe "#pro.brands" do
     it do
       json = api.pro.brands

@@ -9,7 +9,6 @@ require "urlscan/clients/pro"
 
 require "urlscan/commands/base"
 require "urlscan/commands/community"
-require "urlscan/commands/pro"
 
 require "urlscan/api"
 require "urlscan/cli"
