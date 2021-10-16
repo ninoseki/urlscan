@@ -20,6 +20,4 @@ jobs:
           bundler-cache: true
       - name: Build and test with Rake
         run: |
-          gem install bundler
-          bundle install
           bundle exec rake
