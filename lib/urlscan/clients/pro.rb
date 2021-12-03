@@ -17,14 +17,28 @@ module UrlScan
       end
 
       # @return [Hash]
-      def phishfeed(q: "result.task.time:>now-24h", format: "json")
-        params = { q: q, format: format }
+      def phishfeed(q: "result.task.time:>now-24h", format: "json", limit: nil)
+        params = { q: q, format: format, limit: limit }.compact
         get("/phishfeed", params) { |json| json }
       end
 
       # @return [Hash]
-      def similar(uuid)
-        get("/result/#{uuid}/similar/") { |json| json }
+      def similar(uuid, q: nil, size: nil, search_after: nil, threshold: nil, min_size: nil, method: nil, resource_types: nil)
+        params = {
+          q: q,
+          size: size,
+          search_after: search_after,
+          threshold: threshold,
+          minSize: min_size,
+          method: method,
+          resourceTypes: resource_types
+        }.compact
+        get("/result/#{uuid}/similar/", params) { |json| json }
+      end
+
+      # @return [Hash]
+      def scanners
+        get("/livescan/scanners/") { |json| json }
       end
 
       private
