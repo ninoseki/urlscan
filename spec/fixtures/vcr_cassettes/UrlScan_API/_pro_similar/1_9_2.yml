@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://urlscan.io/api/v1/pro/result/34449810-6d17-40c1-bc77-56eb40b3781f/similar/?q=date:%3Enow-7d
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Api-Key:
+      - "<CENSORED/>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - urlscan.io
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 03 Dec 2021 23:32:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-User-Country:
+      - JP
+      Etag:
+      - W/"45-aQCPH7iGIl6pW29cBW7iPyJU/88"
+      Content-Security-Policy:
+      - 'default-src ''self'' data: ; script-src ''self'' data: developers.google.com
+        www.google.com www.gstatic.com https://*.hsforms.net https://*.hsforms.com;
+        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com www.google.com;
+        img-src * data: ; font-src ''self'' fonts.gstatic.com; child-src ''self'';
+        frame-src https://www.google.com/recaptcha/ https://*.hsforms.net https://*.hsforms.com;
+        form-action ''self'' https://*.hsforms.com; upgrade-insecure-requests; connect-src
+        ''self'' https://*.hsforms.com'
+      Referrer-Policy:
+      - unsafe-url
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Proxy-Cache:
+      - MISS
+      X-Robots-Tag:
+      - all
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "results": [],
+          "total": 0,
+          "took": 376,
+          "has_more": false
+        }
+  recorded_at: Fri, 03 Dec 2021 23:32:07 GMT
+recorded_with: VCR 6.0.0
