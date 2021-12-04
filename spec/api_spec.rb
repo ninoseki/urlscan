@@ -6,7 +6,12 @@ RSpec.describe UrlScan::API, :vcr do
 
   describe "#submit" do
     it do
-      json = api.submit("https://www.wikipedia.org/", true)
+      json = api.submit("https://www.wikipedia.org/")
+      expect(json["message"]).to eq("Submission successful")
+    end
+
+    it do
+      json = api.submit("https://www.wikipedia.org/", visibility: "private")
       expect(json["message"]).to eq("Submission successful")
     end
   end

@@ -5,7 +5,7 @@ http_interactions:
     uri: https://urlscan.io/api/v1/scan/
     body:
       encoding: UTF-8
-      string: '{"url":"https://www.wikipedia.org/"}'
+      string: '{"url":"https://www.wikipedia.org/","visibility":"private"}'
     headers:
       Api-Key:
       - "<CENSORED/>"
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Fri, 03 Dec 2021 23:52:41 GMT
+      - Fri, 03 Dec 2021 23:52:40 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -41,19 +41,19 @@ http_interactions:
       X-Rate-Limit-Action:
       - private
       X-Rate-Limit-Window:
-      - minute
+      - day
       X-Rate-Limit-Limit:
-      - '120'
+      - '20000'
       X-Rate-Limit-Remaining:
-      - '119'
+      - '19996'
       X-Rate-Limit-Reset:
-      - '2021-12-03T23:53:00.000Z'
+      - '2021-12-04T00:00:00.000Z'
       X-Rate-Limit-Reset-After:
-      - '17'
+      - '438'
       Vary:
       - Accept
       Etag:
-      - W/"162-PdXKj68yCSJ2qku9oQSk1CfaLPk"
+      - W/"162-bAq7gZ0093N9Hn6AKUXNbQZ7Vjs"
       Content-Security-Policy:
       - 'default-src ''self'' data: ; script-src ''self'' data: developers.google.com
         www.google.com www.gstatic.com https://*.hsforms.net https://*.hsforms.com;
@@ -79,13 +79,13 @@ http_interactions:
       string: |-
         {
           "message": "Submission successful",
-          "uuid": "df6f3755-af72-4d2b-a084-cbe3992d824d",
-          "result": "https://urlscan.io/result/df6f3755-af72-4d2b-a084-cbe3992d824d/",
-          "api": "https://urlscan.io/api/v1/result/df6f3755-af72-4d2b-a084-cbe3992d824d/",
+          "uuid": "5ff429a5-b4d3-4868-b5fc-e49895798943",
+          "result": "https://urlscan.io/result/5ff429a5-b4d3-4868-b5fc-e49895798943/",
+          "api": "https://urlscan.io/api/v1/result/5ff429a5-b4d3-4868-b5fc-e49895798943/",
           "visibility": "private",
           "options": {},
           "url": "https://www.wikipedia.org/",
           "country": "jp"
         }
-  recorded_at: Fri, 03 Dec 2021 23:52:40 GMT
+  recorded_at: Fri, 03 Dec 2021 23:52:39 GMT
 recorded_with: VCR 6.0.0
