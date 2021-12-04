@@ -4,8 +4,16 @@ module UrlScan
   module Clients
     class Community < Base
       # @return [Hash]
-      def submit(url, is_public = true)
-        params = { url: url, public: is_public ? "on" : "off" }
+      def submit(url, customagent: nil, referer: nil, visibility: nil, tags: nil, override_safety: nil, country: nil)
+        params = {
+          url: url,
+          customagent: customagent,
+          referer: referer,
+          visibility: visibility,
+          tags: tags,
+          overrideSafety: override_safety,
+          country: country
+        }.compact
         post("/scan/", params) { |json| json }
       end
 

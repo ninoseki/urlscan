@@ -4,10 +4,23 @@ module UrlScan
   module Commands
     class Community < Base
       desc "submit [URL]", "submit a scan to [URL]"
-      method_option :public, type: :boolean, default: true
+      method_option :customagent, type: :string
+      method_option :referer, type: :string
+      method_option :visibility, type: :string
+      method_option :tags, type: :array
+      method_option :override_safety, type: :string
+      method_option :country, type: :string
       def submit(url)
         with_error_handling do
-          res = api.submit(url, options[:public])
+          res = api.submit(
+            url,
+            customagent: options[:customagent],
+            referer: options[:referer],
+            visibility: options[:visibility],
+            tags: options[:tags],
+            override_safety: options[:override_safety],
+            country: options[:country]
+          )
           puts JSON.pretty_generate(res)
         end
       end
